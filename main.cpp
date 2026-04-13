@@ -156,7 +156,7 @@ void sort_trip(list<Goat> &trip) {
     trip.sort();
 }
 void clear_trip(list<Goat> &trip) {
-    cout << "Dummy" << endl;
+    trip.clear();
 }
 void reverse_trip(list<Goat> &trip) {
     reverse(trip.begin(), trip.end());
