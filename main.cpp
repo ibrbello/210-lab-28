@@ -6,12 +6,17 @@
 using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25;
-
 int select_goat(list<Goat> trip);
 void delete_goat(list<Goat> &trip);
 void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
 int main_menu();
+
+// Task: Add 8 more functionalities
+void sort_trip(list<Goat> &trip);
+void clear_trip(list<Goat> &trip);
+void reverse_trip(list<Goat> &trip);
+void shuffle_trip(list<Goat> &trip);
 
 int main() {
     srand(time(0));
@@ -44,7 +49,7 @@ int main() {
     
     // Goat Manager 3001 Engine
     int sel = main_menu();
-    while (sel != 4) {
+    while (sel != 8) {
         switch (sel) {
             case 1:
                 cout << "Adding a goat.\n";
@@ -57,6 +62,22 @@ int main() {
             case 3:    
                 cout << "Displaying goat data.\n";
                 display_trip(trip);
+                break;
+            case 4:    
+                cout << "Sorting trip.\n";
+                sort_trip(trip);
+                break;
+            case 5:    
+                cout << "Clearing trip.\n";
+                clear_trip(trip);
+                break;
+            case 6:    
+                cout << "Reversing trip.\n";
+                reverse_trip(trip);
+                break;
+            case 7:    
+                cout << "Shuffling trip.\n";
+                shuffle_trip(trip);
                 break;
             default:
                 cout << "Invalid selection.\n";
@@ -74,11 +95,15 @@ int main_menu() {
     cout << "[1] Add a goat\n";
     cout << "[2] Delete a goat\n";
     cout << "[3] List goats\n";
-    cout << "[4] Quit\n";
+    cout << "[4] Sort trip\n";
+    cout << "[5] Clear trip\n";
+    cout << "[6] Reverse trip\n";
+    cout << "[7] Shuffle trip\n";
+    cout << "[8] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
-    while (choice < 1 || choice > 4) {
+    while (choice < 1 || choice > 8) {
         cout << "Invalid, again --> ";
         cin >> choice;
     }
@@ -125,4 +150,17 @@ int select_goat(list<Goat> trp) {
         cin >> input;
     }
     return input;
+}
+
+void sort_trip(list<Goat> &trip) {
+    trip.sort();
+}
+void clear_trip(list<Goat> &trip) {
+    cout << "Dummy" << endl;
+}
+void reverse_trip(list<Goat> &trip) {
+    reverse(trip.begin(), trip.end());
+}
+void shuffle_trip(list<Goat> &trip) {
+    cout << "Placeholder" << endl;
 }
